@@ -8,7 +8,11 @@ spring:
     password: root
     url: jdbc:mysql://39.100.128.196:3306/gulimall_ums
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+  application:
+    name: mall-member
+  cloud:
+    nacos:
+      server-addr: localhost:8848
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
