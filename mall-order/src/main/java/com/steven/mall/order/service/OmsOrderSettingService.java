@@ -1,0 +1,20 @@
+package com.steven.mall.order.service;
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.steven.common.utils.PageUtils;
+import com.steven.mall.order.entity.OmsOrderSettingEntity;
+
+import java.util.Map;
+
+/**
+ * 订单配置信息
+ *
+ * @author steven
+ * @email stevenlin5520@163.com
+ * @date 2020-12-15 12:38:07
+ */
+public interface OmsOrderSettingService extends IService<OmsOrderSettingEntity> {
+
+    PageUtils queryPage(Map<String, Object> params);
+}
+
