@@ -8,6 +8,12 @@ spring:
     password: root
     url: jdbc:mysql://39.100.128.196:3306/gulimall_pms
     driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: mall-product
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://127.0.0.1:8848
 
 
 mybatis-plus:

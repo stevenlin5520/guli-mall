@@ -3,12 +3,11 @@ package com.steven.mall.coupon.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.*;
 
 import com.steven.mall.coupon.entity.CouponEntity;
 import com.steven.mall.coupon.service.CouponService;
@@ -24,11 +23,29 @@ import com.steven.common.utils.R;
  * @email stevenlin5520@163.com
  * @date 2020-12-15 12:30:23
  */
+@RefreshScope
 @RestController
 @RequestMapping("coupon/coupon")
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    @GetMapping("hatSale")
+    public R hatSale(){
+        CouponEntity entity = new CouponEntity();
+        entity.setCouponName("满100减99");
+        return R.ok().put("coupon", entity);
+    }
+
+    @NacosValue("${coupon.user.name}")
+    private String name;
+    @NacosValue("${coupon.user.age}")
+    private int age;
+
+    @GetMapping("testConfig")
+    public R testConfig(){
+        return R.ok().put("name",name).put("age",age);
+    }
 
     /**
      * 列表

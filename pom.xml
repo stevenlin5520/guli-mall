@@ -19,6 +19,5 @@
 
         <module>mall-admin</module>
         <module>mall-generator</module>
-        <module>mall-common</module>
     </modules>
 </project>

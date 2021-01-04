@@ -3,12 +3,9 @@ package com.steven.mall.member.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.steven.mall.member.feign.CouponFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.steven.mall.member.entity.MemberEntity;
 import com.steven.mall.member.service.MemberService;
@@ -29,6 +26,18 @@ import com.steven.common.utils.R;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+
+    @Autowired
+    CouponFeignService couponFeignService;
+
+    @RequestMapping("getUserCoupon")
+    public R getUserCoupon(){
+        MemberEntity memberEntity = new MemberEntity();
+        memberEntity.setUsername("张三");
+        R redSale = couponFeignService.redSale();
+        return R.ok().put("user", memberEntity).put("coupon", redSale.get("coupon"));
+    }
+
 
     /**
      * 列表
