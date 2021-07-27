@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.steven.mall</groupId>
+    <artifactId>guli-mall</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>guli-mall</name>
+    <description>谷粒商城-聚合服务</description>
+
+    <modules>
+        <module>mall-common</module>
+        <module>mall-coupon</module>
+        <module>mall-member</module>
+        <module>mall-order</module>
+        <module>mall-product</module>
+        <module>mall-ware</module>
+        <module>mall-three-part</module>
+        <module>mall-gateway</module>
+
+        <module>mall-admin</module>
+        <module>mall-generator</module>
+    </modules>
+</project>
