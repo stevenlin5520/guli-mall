@@ -1,0 +1,37 @@
+server:
+  port: 10100
+
+
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/gulimall_pms?useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: mall-product
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto   # ID自增
+      logic-delete-value: 1   # 逻辑删除状态：未删除
+      logic-not-delete-value: 0   # 逻辑删除状态：已删除
+logging:
+  level:
+    com.steven.mall: debug
+
+
+# 阿里云OOS配置
+aliyun:
+  oss:
+    bucketName: *
+    endpoint: *
+    accessKeyId: *
+    accessKeySecret: *

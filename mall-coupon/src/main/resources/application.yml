@@ -1,0 +1,29 @@
+server:
+  port: 10200
+
+
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/gulimall_sms
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: mall-coupon
+  cloud:
+    nacos:
+      discovery:    #注册中心
+        server-addr: 127.0.0.1:8848
+      config:      #配置中心
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+
+
+# 配置
+coupon:
+  user:
+    name: steven
+    age: 25
